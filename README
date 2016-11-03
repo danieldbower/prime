@@ -30,3 +30,11 @@ In mathematics, a prime number (or a prime) is a natural number which has exactl
 two distinct natural number divisors: 1 and itself. The first twenty-six prime numbers are:
 2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89,
 97, 101
+
+
+Test Report and Code Coverage can be generated with:
+gradle test jacoco codenarcMain
+Reports are available at:
+build/reports/jacoco/test/html/index.html
+build/reports/tests/index.html
+build/reports/codenarc/main.html
