@@ -126,7 +126,7 @@ ruleset {
     // rulesets/dry.xml
     DuplicateListLiteral 
     DuplicateMapLiteral 
-    DuplicateNumberLiteral 
+    //DuplicateNumberLiteral
     DuplicateStringLiteral 
     
     // rulesets/enhanced.xml
@@ -170,20 +170,20 @@ ruleset {
     LineLength 
     MissingBlankLineAfterImports 
     MissingBlankLineAfterPackage 
-    SpaceAfterCatch 
-    SpaceAfterClosingBrace 
+    //SpaceAfterCatch
+    //SpaceAfterClosingBrace
     SpaceAfterComma 
-    SpaceAfterFor 
-    SpaceAfterIf 
+    //SpaceAfterFor
+    //SpaceAfterIf
     SpaceAfterOpeningBrace 
     SpaceAfterSemicolon 
-    SpaceAfterSwitch 
-    SpaceAfterWhile 
+    //SpaceAfterSwitch
+    //SpaceAfterWhile
     SpaceAroundClosureArrow 
     SpaceAroundMapEntryColon 
     SpaceAroundOperator 
     SpaceBeforeClosingBrace 
-    SpaceBeforeOpeningBrace 
+    //SpaceBeforeOpeningBrace
     TrailingWhitespace 
     
     // rulesets/generic.xml
@@ -301,7 +301,7 @@ ruleset {
     ClassNameSameAsFilename 
     ClassNameSameAsSuperclass 
     ConfusingMethodName 
-    FactoryMethodName 
+    //FactoryMethodName
     FieldName 
     InterfaceName 
     InterfaceNameSameAsSuperInterface 
@@ -379,7 +379,7 @@ ruleset {
     UnnecessaryPackageReference 
     UnnecessaryParenthesesForMethodCallWithClosure 
     UnnecessaryPublicModifier 
-    UnnecessaryReturnKeyword 
+    //UnnecessaryReturnKeyword
     UnnecessarySafeNavigationOperator 
     UnnecessarySelfAssignment 
     UnnecessarySemicolon 

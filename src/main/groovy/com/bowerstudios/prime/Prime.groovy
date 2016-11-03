@@ -3,7 +3,7 @@ package com.bowerstudios.prime
 /**
  * Implementation for Exercise
  */
-class Prime implements PrimeNumberGenerator{
+class Prime implements PrimeNumberGenerator {
 
     static void main(String[] args) {
         println 'Hello World!'
@@ -18,7 +18,7 @@ class Prime implements PrimeNumberGenerator{
     List<Integer> generate(int startingValue, int endingValue) {
         List rangeOfVals = createRangeFrom(startingValue..endingValue)
 
-        return rangeOfVals.findAll{
+        return rangeOfVals.findAll {
             isPrime(it)
         }
     }
@@ -34,16 +34,29 @@ class Prime implements PrimeNumberGenerator{
      * @return
      */
     boolean isPrime(int value) {
+        // Eliminate integers less than 2
         if(value < 2){
             return false
         }
 
-        if(value == 2){
+        // 2 is okay, the only even prime
+        if(value == 2) {
             return true
         }
 
-        if(value % 2 == 0){
+        // all other evens can be dropped immediately
+        if(value % 2 == 0) {
             return false
+        }
+
+        int step = 3
+        while(step <= Math.sqrt(value)) {
+            if((value % step) == 0 ) {
+                return false
+            }
+
+            //skip the even, and go to the next odd
+            step += 2
         }
 
         return true
@@ -56,7 +69,7 @@ class Prime implements PrimeNumberGenerator{
      */
     List<Integer> createRangeFrom(int startingValue, int endingValue) {
         Range vals
-        if(startingValue>endingValue) {
+        if(startingValue > endingValue) {
             vals = (endingValue..startingValue)
         }else{
             vals = (startingValue..endingValue)

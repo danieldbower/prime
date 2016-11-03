@@ -49,8 +49,8 @@ class PrimeSpec extends Specification {
         expect:
         prime.isPrime(2)
 
-        [2,4,6,8,16,32,64,128,256,512,1024].each{
-            !prime.isPrime(it)
+        [4,6,8,16,32,64,128,256,512,1024].each{
+            assert !prime.isPrime(it)
         }
     }
 
@@ -58,7 +58,21 @@ class PrimeSpec extends Specification {
         Prime prime = new Prime()
 
         expect:
-        prime.isPrime(3)
+
+        [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97, 101].each {
+            assert prime.isPrime(it)
+        }
+    }
+
+    def "odd non primes" () {
+        Prime prime = new Prime()
+
+        expect:
+
+        [9, 15, 21, 25, 27, 33, 35, 39, 45, 49, 51, 55, 57, 63, 65, 69, 75, 77, 81, 85, 87, 91, 93, 95, 99].each{
+            assert !prime.isPrime(it)
+        }
+
     }
 
 }
