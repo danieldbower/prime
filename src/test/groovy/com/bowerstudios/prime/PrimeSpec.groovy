@@ -18,4 +18,20 @@ class PrimeSpec extends Specification {
         true
     }
 
+    def "basic request to check a range"() {
+        Prime prime = new Prime()
+
+        expect:
+        !prime.generate(0,0)
+
+    }
+
+    def "zero and 1 are not prime" () {
+        Prime prime = new Prime()
+
+        expect:
+        !prime.isPrime(0)
+        !prime.isPrime(1)
+    }
+
 }
