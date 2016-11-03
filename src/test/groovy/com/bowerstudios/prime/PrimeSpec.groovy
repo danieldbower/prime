@@ -32,12 +32,33 @@ class PrimeSpec extends Specification {
         3 | 0 | [0, 1, 2, 3]                //inverse
     }
 
-    def "zero and 1 are not prime" () {
+    def "negatives, zero and 1 are not prime" () {
         Prime prime = new Prime()
 
         expect:
         !prime.isPrime(0)
         !prime.isPrime(1)
+        !prime.isPrime(-1)
+        !prime.isPrime(-10)
+        !prime.isPrime(-15)
+    }
+
+    def "2 is the only even prime" () {
+        Prime prime = new Prime()
+
+        expect:
+        prime.isPrime(2)
+
+        [2,4,6,8,16,32,64,128,256,512,1024].each{
+            !prime.isPrime(it)
+        }
+    }
+
+    def "first 26 primes" () {
+        Prime prime = new Prime()
+
+        expect:
+        prime.isPrime(3)
     }
 
 }
