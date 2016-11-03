@@ -9,20 +9,40 @@ class Prime implements PrimeNumberGenerator{
         println 'Hello World!'
     }
 
-
-    List<Integer> generate(int startingValue, int endingValue){
-        List rangeOfVals = (startingValue..endingValue).step(1)
+    /**
+     *
+     * Endpoints are candidates
+     * Result is ordered
+     * Inverse ranges are supported
+     */
+    List<Integer> generate(int startingValue, int endingValue) {
+        List rangeOfVals = createRangeFrom(startingValue..endingValue)
 
         return rangeOfVals.findAll{
             isPrime(it)
         }
     }
 
-    boolean isPrime(int value){
+    boolean isPrime(int value) {
         if(value < 2){
             return false
         }
         return true
+    }
+
+    /**
+     * List is inclusive of endpoints
+     * Result is ordered
+     * Inverse ranges are supported
+     */
+    List<Integer> createRangeFrom(int startingValue, int endingValue) {
+        Range vals
+        if(startingValue>endingValue) {
+            vals = (endingValue..startingValue)
+        }else{
+            vals = (startingValue..endingValue)
+        }
+        return vals.step(1)
     }
 
 }
