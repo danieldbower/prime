@@ -7,12 +7,16 @@ import spock.lang.*
  */
 class PrimeSpec extends Specification {
 
+    @Shared
+    List first26 = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97, 101]
+
     def "Sanity check of environment"() {
         expect:
         true
     }
 
     def "Sanity check main and code reporting"() {
+        // :TODO - make a more meaningful main method validating arguments
         Prime.main(['a', 'b', 'c'] as String[])
         expect:
         true
@@ -43,7 +47,7 @@ class PrimeSpec extends Specification {
         !prime.isPrime(-15)
     }
 
-    def "2 is the only even prime" () {
+    def "isPrime() - 2 is the only even prime" () {
         Prime prime = new Prime()
 
         expect:
@@ -54,24 +58,31 @@ class PrimeSpec extends Specification {
         }
     }
 
-    def "first 26 primes" () {
+    def "isPrime() - first 26 primes" () {
         Prime prime = new Prime()
 
         expect:
-
-        [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97, 101].each {
+        first26.each {
             assert prime.isPrime(it)
         }
     }
 
-    def "odd non primes" () {
+    def "isPrime() - odd non primes" () {
         Prime prime = new Prime()
 
         expect:
-
         [9, 15, 21, 25, 27, 33, 35, 39, 45, 49, 51, 55, 57, 63, 65, 69, 75, 77, 81, 85, 87, 91, 93, 95, 99].each{
             assert !prime.isPrime(it)
         }
+
+    }
+
+    def "generate - put it all together" () {
+        Prime prime = new Prime()
+
+        expect:
+        [2,3,5] == prime.generate(0, 6)
+        first26 == prime.generate(0, 102)
 
     }
 

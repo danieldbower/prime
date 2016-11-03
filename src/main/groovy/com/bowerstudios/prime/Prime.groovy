@@ -16,7 +16,7 @@ class Prime implements PrimeNumberGenerator {
      * Inverse ranges are supported
      */
     List<Integer> generate(int startingValue, int endingValue) {
-        List rangeOfVals = createRangeFrom(startingValue..endingValue)
+        List rangeOfVals = createRangeFrom(startingValue, endingValue)
 
         return rangeOfVals.findAll {
             isPrime(it)
