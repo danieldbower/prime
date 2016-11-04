@@ -15,5 +15,9 @@ interface PrimeNumberGenerator {
      */
     boolean isPrime(int value)
 
+    /**
+     * Allow the Number Inspection Strategy to be switched
+     */
+    void setNumberInspector(NumberInspector numberInspector)
 }
 

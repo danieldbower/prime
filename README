@@ -38,3 +38,6 @@ Reports are available at:
 build/reports/jacoco/test/html/index.html
 build/reports/tests/index.html
 build/reports/codenarc/main.html
+
+Jacoco doesn't seem to fully cover Groovy, so, it says that the test coverage is lower than what it is.
+I might switch to Cobertura and see if that has better luck.
