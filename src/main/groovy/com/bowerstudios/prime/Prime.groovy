@@ -1,8 +1,11 @@
 package com.bowerstudios.prime
 
+import groovy.transform.CompileStatic
+
 /**
- * Implementation for Exercise
+ * Implementation for Prime Number Exercise
  */
+@CompileStatic
 class Prime implements PrimeNumberGenerator {
 
     static void main(String[] args) {
