@@ -1,7 +1,8 @@
 Prime Number Generator Coding Exercise
 
-Overview:
-
+******************************************
+Overview
+******************************************
 Your task is to use test driven development to implement a prime number generator that
 returns an ordered list of all prime numbers in a given range (inclusive of the endpoints).
 You must implement the interface specified below. You may also create any other
@@ -18,11 +19,8 @@ Notes:
 Interface:
 
 Interface PrimeNumberGenerator {
-
-List<Integer> generate(int startingValue, int endingValue);
-
-boolean isPrime(int value);
-
+  List<Integer> generate(int startingValue, int endingValue);
+  boolean isPrime(int value);
 }
 
 Definition (from wikipedia):
@@ -32,12 +30,31 @@ two distinct natural number divisors: 1 and itself. The first twenty-six prime n
 97, 101
 
 
+******************************************
+TESTING and REPORTING
+******************************************
 Test Report and Code Coverage can be generated with:
-gradle test jacoco codenarcMain
+# gradlew test jacoco codenarcMain
+
 Reports are available at:
 build/reports/jacoco/test/html/index.html
 build/reports/tests/index.html
 build/reports/codenarc/main.html
 
-Jacoco doesn't seem to fully cover Groovy, so, it says that the test coverage is lower than what it is.
-I might switch to Cobertura and see if that has better luck.
+Groovy adds some bits to the bytecode, so, the Instructions coverage won't be 100%.  However branch
+coverage is at 100%
+
+
+
+******************************************
+TO RUN THE PROJECT
+******************************************
+First build it:
+# gradlew installDist; cd build/install/prime/bin
+
+Then run:
+On *nix or mac:
+# ./prime --start 0 --end 1000
+
+On Windows:
+# prime.bat --start 0 --end 1000

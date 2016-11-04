@@ -16,6 +16,7 @@ class PrimeSpec extends Specification {
         expect:
         Prime.main(['-s', '0', '-e', '6'] as String[])
         Prime.main(['-s', '0', '-e', '102'] as String[])
+        Prime.main(['--help'] as String[])
     }
 
 }

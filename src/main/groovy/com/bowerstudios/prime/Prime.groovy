@@ -16,7 +16,13 @@ class Prime {
     static void main(String[] args) {
         // read and validate command line parameters
         CommandLineArgs commandLineArgs = new CommandLineArgs()
-        new JCommander(commandLineArgs, args)  //with side effects!
+        JCommander jCommander = new JCommander(commandLineArgs, args)  //with side effects!
+
+        jCommander.setProgramName('Prime Number Generator')
+        if (commandLineArgs.help) {
+            jCommander.usage()
+            return
+        }
 
         PrimeNumberGenerator primeNumberGenerator = new PrimeNumberGeneratorRanged()
 

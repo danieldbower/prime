@@ -9,9 +9,12 @@ import groovy.transform.CompileStatic
 @CompileStatic
 class CommandLineArgs {
 
-    @Parameter (names=['--start', '-s'])
+    @Parameter (names=['--start', '-s'], description = 'The integer to start the range', required = true)
     int startVal
-    @Parameter(names=['--end', '-e'])
+    @Parameter(names=['--end', '-e'], description = 'The integer to end the range', required = true)
     int endVal
+
+    @Parameter(names = '--help', help = true)
+    boolean help = false
 
 }

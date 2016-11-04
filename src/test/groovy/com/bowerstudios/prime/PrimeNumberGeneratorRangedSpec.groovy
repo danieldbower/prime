@@ -15,7 +15,7 @@ class PrimeNumberGeneratorRangedSpec extends Specification {
 
     /**
      * This test is duplicated in the NumberInspectorSpec, but we'll be calling it through the facade
-     * in PrimeNumberGenerator, necessary to get our 100% code coverage
+     * in PrimeNumberGenerator, necessary to attempt 100% code coverage
      */
     def "first 26 primes" () {
         expect:
@@ -24,10 +24,15 @@ class PrimeNumberGeneratorRangedSpec extends Specification {
         }
     }
 
-    def "generate - put it all together" () {
+    def "generate - put it all together" (int fromVal, int toVal, List result) {
         expect:
-        [2,3,5] == primeNumberGenerator.generate(0, 6)
-        NumberInspectorSpec.first26 == primeNumberGenerator.generate(0, 102)
+        result == primeNumberGenerator.generate(fromVal, toVal)
+
+        where:
+        fromVal | toVal | result
+           0 |    6 | [2,3,5]                         // simple example
+           0 |  102 | NumberInspectorSpec.first26     // first 26
+        7900 | 7920 | [7901, 7907, 7919]              // required example
     }
 
     def "create an ordered range"(int fromVal, int toVal, List result) {
