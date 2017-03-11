@@ -4,13 +4,13 @@ apply plugin: 'application'
 apply plugin: 'codenarc'
 apply plugin: 'jacoco'
 
-sourceCompatibility = 1.7
-targetCompatibility = 1.7
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
 
 group = 'com.bowerstudios'
-version = '0.0.1'
+version = '0.0.2'
 
-mainClassName = "com.bowerstudios.prime.Prime"
+mainClassName = "com.bowerstudios.prime.App"
 
 repositories {
 	mavenCentral()

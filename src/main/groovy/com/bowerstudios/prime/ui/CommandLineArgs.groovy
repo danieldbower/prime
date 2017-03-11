@@ -1,4 +1,4 @@
-package com.bowerstudios.prime
+package com.bowerstudios.prime.ui
 
 import com.beust.jcommander.Parameter
 import groovy.transform.CompileStatic

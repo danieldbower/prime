@@ -1,5 +1,6 @@
 package com.bowerstudios.prime
 
+import com.bowerstudios.prime.ui.CommandLineArgs
 import spock.lang.Specification
 
 /**

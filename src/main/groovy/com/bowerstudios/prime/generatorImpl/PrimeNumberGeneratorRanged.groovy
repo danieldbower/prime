@@ -1,14 +1,16 @@
-package com.bowerstudios.prime
+package com.bowerstudios.prime.generatorImpl
 
+import com.bowerstudios.prime.NumberInspector
+import com.bowerstudios.prime.PrimeNumberGenerator
 import groovy.transform.CompileStatic
 
 /**
- * Implementation for Prime Number Exercise
+ * Implementation for App Number Exercise
  */
 @CompileStatic
 class PrimeNumberGeneratorRanged implements PrimeNumberGenerator{
 
-    NumberInspector numberInspector = new NumberInspector() //default implementation
+    NumberInspector numberInspector
 
     /**
      * Generate a list of Primes starting with start value and ending with end value.
@@ -23,18 +25,6 @@ class PrimeNumberGeneratorRanged implements PrimeNumberGenerator{
         return rangeOfVals.findAll {
             numberInspector.isPrime(it)
         }
-    }
-
-    /**
-     * Perhaps this method doesn't belong in that interface?
-     * Recommend you use the NumberInspector instead.  Although we could retain this method as a
-     * part of a "single" api point.
-     *
-     * Extracting it out, we can easily swap it for other methods of searching,
-     * such as a concurrent example.
-     */
-    boolean isPrime(int value) {
-        return numberInspector.isPrime(value)
     }
 
     /**

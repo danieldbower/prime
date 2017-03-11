@@ -1,5 +1,6 @@
 package com.bowerstudios.prime
 
+import com.bowerstudios.prime.inspectorImpl.SingleThreadNumberInspector
 import spock.lang.Shared
 import spock.lang.Specification
 
@@ -15,7 +16,7 @@ class NumberInspectorSpec extends Specification {
                     47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97, 101]
 
     @Shared
-    NumberInspector numberInspector = new NumberInspector()
+    NumberInspector numberInspector = new SingleThreadNumberInspector()
 
     def "negatives, zero and 1 are not prime" (int val, boolean result) {
         expect:

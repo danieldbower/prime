@@ -1,5 +1,7 @@
 package com.bowerstudios.prime
 
+import com.bowerstudios.prime.generatorImpl.PrimeNumberGeneratorRanged
+import com.bowerstudios.prime.inspectorImpl.SingleThreadNumberInspector
 import spock.lang.Shared
 import spock.lang.Specification
 
@@ -10,19 +12,7 @@ class PrimeNumberGeneratorRangedSpec extends Specification {
 
     @Shared
     //Strongly typing the reference so we can access functions outside of the interface
-    PrimeNumberGeneratorRanged primeNumberGenerator = new PrimeNumberGeneratorRanged()
-
-
-    /**
-     * This test is duplicated in the NumberInspectorSpec, but we'll be calling it through the facade
-     * in PrimeNumberGenerator, necessary to attempt 100% code coverage
-     */
-    def "first 26 primes" () {
-        expect:
-        NumberInspectorSpec.first26.each {
-            assert primeNumberGenerator.isPrime(it)
-        }
-    }
+    PrimeNumberGeneratorRanged primeNumberGenerator = create()
 
     def "generate - put it all together" (int fromVal, int toVal, List result) {
         expect:
@@ -48,9 +38,9 @@ class PrimeNumberGeneratorRangedSpec extends Specification {
         0  | -3 | [-3, -2, -1, 0]             //inverse negative
     }
 
-    def "Set a different Number Inspector"() {
-        primeNumberGenerator.numberInspector = new NumberInspector()
-        expect:
-        primeNumberGenerator.numberInspector
+    PrimeNumberGeneratorRanged create(){
+        new PrimeNumberGeneratorRanged(
+                numberInspector: new SingleThreadNumberInspector()
+        )
     }
 }
